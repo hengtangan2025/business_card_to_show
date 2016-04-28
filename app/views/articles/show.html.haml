@@ -1,0 +1,15 @@
+.article
+  %ul.nav.nav-pills
+    %li
+      %a{:role => "presentation", :href => "/articles"}
+        %span
+          文章
+.article.panel.panel-default
+  .article-title.panel-heading{:align => "center"}
+    %h1.panel-title
+      = @article.title
+  .article-picture{:align => "center"}
+    = image_tag("/#{@article.picture}", height: '300', width: '400')
+  .article-text-body.panel-body{:align => "center"}
+    %p
+      = @article.text_body

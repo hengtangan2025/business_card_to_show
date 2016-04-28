@@ -8,12 +8,45 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.new(article_params)
+    require 'fileutils'
+    title = params[:article][:title]
+    text_body = params[:article][:text_body]
+    picture = params[:article][:picture]
+
+    picture_file = File.join("public", picture.original_filename)
+    FileUtils.cp picture.path, picture_file
+
+    @article = Article.create(:title => title, :text_body => text_body, :picture => picture.original_filename)
     if @article.save
       redirect_to "/articles"
     else
       redirect_to "/articles/new"
     end  
+  end
+
+  def show
+    @article = Article.find(params[:id])
+  end
+
+  def edit
+    @article = Article.find(params[:id])
+  end
+
+  def update
+    require 'fileutils'
+    @article = Article.find(params[:id])
+    title = params[:article][:title]
+    text_body = params[:article][:text_body]
+    picture = params[:article][:picture]
+
+    picture_file = File.join("public", picture.original_filename)
+    FileUtils.cp picture.path, picture_file
+
+    if @article.update_attributes(:title => title, :text_body => text_body, :picture => picture.original_filename)
+      redirect_to "/articles"
+    else
+      render "/articles/#{params[:id]}"
+    end
   end
 
   def destroy
@@ -24,6 +57,6 @@ class ArticlesController < ApplicationController
 
   private
     def article_params
-      params.require().permit(:title, :text_body, :picture, :user_id)
+      params.require(:article).permit(:title, :text_body, :picture)
     end
 end

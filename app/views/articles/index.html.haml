@@ -1,0 +1,41 @@
+.article
+  .menu-top
+    %ul.nav.nav-pills
+      %li
+        %a.menu-a{role: "presentation", href: "/articles/new"}
+          %span
+            添加文章
+      %li
+        %a.menu-a1{role: "presentation", href: "/articles"}
+          %span
+            文章    
+.article
+  .not-menu
+    %p
+      abg
+  %table.table.table-striped
+    %thead
+      %tr
+        %th 标题
+        %th 正文
+        %th 图片
+        %th 操作
+    %tbody
+      - @articles.each do |a|
+        %tr
+          %td
+            = a.title
+          %td
+            = truncate(a.text_body, length: 60)
+          %td
+            = image_tag("/#{a.picture}", height: '100', width: '100') 
+          %td
+            %a.btn.btn-default{ href: "/articles/#{a.id}/edit" }
+              %i.glyphicon.glyphicon-edit
+              %span 修改
+            %a.btn.btn-default{ href: "/articles/#{a.id}"}
+              %i.glyphicon.glyphicon-list-alt
+              %span 详情
+            %a.btn.btn-default{ href: "/articles/#{a.id}", data: {confirm: "你确定要删除吗？", method: :delete} }
+              %i.glyphicon.glyphicon-trash 
+              %span 删除

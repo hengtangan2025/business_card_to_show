@@ -9,6 +9,6 @@ class Article
   # 图片
   field :picture, type: String
   # 作者
-  belongs_to :user
+  # belongs_to :user
 
 end
