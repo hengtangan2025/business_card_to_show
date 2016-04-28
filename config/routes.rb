@@ -53,4 +53,8 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  mount PlayAuth::Engine => '/auth', :as => :auth
+  root   'articles#index'
+  resources :articles
+  resources :business_cards
 end

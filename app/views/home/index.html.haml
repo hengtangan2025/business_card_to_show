@@ -1,0 +1,33 @@
+.engine-generated
+  - if user_signed_in?
+    .desc.current-user
+      %span 当前用户：
+      %strong= current_user.name
+  - else
+    .desc
+      %span 当前无登录用户
+  .desc
+    %span 访问
+    %a.create-user{:href => '/auth'} /auth
+    %span 注册
+  .desc
+    %span 访问
+    %a.log-in{:href => '/auth/login'} /auth/login
+    %span 登录
+  .desc
+    %span 点击
+    %a.log-out{:href => '/auth/logout', :data => {:method => :delete}} DELETE /auth/logout
+    %span 登出
+  .desc
+    %span 访问
+    - if current_user != nil
+      %a.to-questions{:href => '/articles'} /articles   
+    -else 
+      %a.to-questions{:href => '/auth/login'} /articles 
+    %span 分享 (点击跳转到文章列表页)
+  .desc
+    %span
+    - if current_user != nil
+      %a.to-questions{:href => '/business_cards'} 查看名片 （点击跳转到current_user的名片）
+      %a.to-questions{:href => '/business_cards/#{id}/edit'}修改名片 （点击跳转到名片的edit页面）
+      = "创建名片：我的想法是注册用户成功后用回掉方法同时为该用户创建一个空名片"

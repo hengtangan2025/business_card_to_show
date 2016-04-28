@@ -1,0 +1,13 @@
+.article-show
+   作者
+   %a{:href => "/business_cards/"} 李俊锋
+   （点击作者名称查看作者名片）
+   .title= @article.title
+   .picture= image_tag(@article.picture)
+   .text_body= @article.text_body
+
+.ckepop{:id => "ckepop"}
+   %span{:class => "jiathis_txt"} 分享到：
+   %a{:class => "jiathis_button_qzone"} QQ空间
+   %a{:href =>"http://www.jiathis.com/share", :class =>"jiathis jiathis_txt jiathis_separator jtico jtico_jiathis", :target => "_blank"} 更多
+%script{:type => "text/javascript", :src => "http://v2.jiathis.com/code/jia.js", :charset => "utf-8"}

@@ -1,0 +1,24 @@
+.business-card-index
+  .head-url= image_tag(@business_card[:head_url])
+  .name= @business_card[:name]
+  .qq-code
+  qq号: 
+  = @business_card[:qq_code]
+  .we-chat-code
+  微信号:
+  = @business_card[:we_chat_code]
+  .phone_number
+  手机号:
+  = @business_card[:phone_number]
+  .mail
+  邮箱:
+  = @business_card[:mail]
+  .company
+  公司:
+  = @business_card[:company]
+  .introduction
+  公司简介:
+  = @business_card[:introduction]
+  .qr-image-url
+  二维码:
+  = image_tag(@business_card[:qr_image_url])

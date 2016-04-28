@@ -1,0 +1,12 @@
+development:
+  sessions:
+    default:
+      database: card_mongodb
+      hosts:
+        - localhost:27017
+test:
+  sessions:
+    default:
+      database: card_mongodb
+      hosts:
+        - localhost:27017
