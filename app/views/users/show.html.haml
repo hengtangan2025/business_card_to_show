@@ -1,0 +1,40 @@
+.page-show-card
+  %h2 个人主页
+  -if current_user.present?
+    %span 当前用户：
+    %strong= current_user.name
+  %hr
+  %a.create{href: '/cards/new'}
+    %h4 创建名片
+  .card-area.row
+    -if current_user.card.present?
+      .div.col-md-2
+        %img{:src=>"/#{current_user.card.head_url}",:class=>"img-circle card-head-img"}
+        .div
+          %span 姓名：
+          %p #{current_user.card.name}
+      .card-area-content.col-md-7
+        .card-area-content-field
+          %span 手机号：
+          %span #{current_user.card.phone_num}
+        .card-area-content-field
+          %span 单位：
+          %span #{current_user.card.company}
+        .card-area-content-field
+          %span qq：
+          %span #{current_user.card.qq_code}
+        .card-area-content-field
+      .col-md-1
+        %a{:class=>'btn btn-default'}
+          .glyphicon.glyphicon-cog 高级编辑
+        %a{:class=>'btn btn-default',href: "/cards/#{current_user.card.id}"}
+          .glyphicon.glyphicon-search 查看名片
+        %a{:class=>'btn btn-default'}
+          .glyphicon.glyphicon-remove 删除名片
+        %a{:class=>'btn btn-default'}
+          .glyphicon.glyphicon-pencil 修改名片
+
+
+
+
+
