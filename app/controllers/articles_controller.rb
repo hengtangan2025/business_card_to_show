@@ -1,6 +1,8 @@
 class ArticlesController < ApplicationController
   def index
     @articles = Article.all
+    @articles = Article.reversed
+    @articles.to_a
   end
 
   def new

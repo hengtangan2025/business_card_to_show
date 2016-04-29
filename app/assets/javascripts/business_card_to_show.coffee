@@ -1,10 +1,10 @@
-class Article
+class FormArticle
   constructor: (@$elm)->
     @bind_events()
 
   bind_events: ->
     # photo preview
-    @$elm.on 'click', '.field', =>
+    @$elm.on 'click', '.file-picture-article', =>
       jQuery(".upload-preview").on('change', (event) ->
         files = event.target.files
         image = files[0]
@@ -16,13 +16,16 @@ class Article
         reader.readAsDataURL(image)
       )
 
-    @$elm.on 'click', '.menu-top', =>
-      jQuery(".menu-last").on('click', ->
-        jQuery(".menu-last").addClass("active")
-      )
-      jQuery(".menu-first").addClass("active")
+class Article
+  constructor: (@$elm)->
+    @bind_events()
+
+  bind_events:->
+
+jQuery(document).on "ready page:load", ->
+  if jQuery(".form-simple-article").length > 0
+    new FormArticle jQuery('.form-simple-article')
 
 jQuery(document).on "ready page:load", ->
   if jQuery(".article").length > 0
     new Article jQuery('.article')
-  
