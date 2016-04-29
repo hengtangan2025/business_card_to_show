@@ -16,6 +16,12 @@ class Article
         reader.readAsDataURL(image)
       )
 
+    @$elm.on 'click', '.menu-top', =>
+      jQuery(".menu-last").on('click', ->
+        jQuery(".menu-last").addClass("active")
+      )
+      jQuery(".menu-first").addClass("active")
+
 jQuery(document).on "ready page:load", ->
   if jQuery(".article").length > 0
     new Article jQuery('.article')

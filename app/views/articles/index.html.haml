@@ -1,18 +1,15 @@
 .article
   .menu-top
     %ul.nav.nav-pills
-      %li
-        %a.menu-a{role: "presentation", href: "/articles/new"}
+      %li.menu-first{role: "presentation",}
+        %a{href: "/articles/new"}
           %span
             添加文章
-      %li
-        %a.menu-a1{role: "presentation", href: "/articles"}
+      %li.menu-last{role: "presentation",}
+        %a{href: "/articles"}
           %span
-            文章    
+            文章
 .article
-  .not-menu
-    %p
-      abg
   %table.table.table-striped
     %thead
       %tr
