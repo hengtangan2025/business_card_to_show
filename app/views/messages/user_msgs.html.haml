@@ -1,0 +1,21 @@
+-if @msgs.count == 0
+  %p 没有留言
+-else
+  %table.table.table-bordered.table-striped
+    %thead
+      %tr
+        %th 昵称
+        %th 号码
+        %th 内容
+        %th 操作
+        %th 时间
+    %tbody
+    -@msgs.each do |c|
+      %tr
+        %td= c.name
+        %td= c.phone_num
+        %td= c.context
+        %td 
+          %a.remove{:href=>"/messages/#{c.id}", :data => {:method => :delete}}
+            %h4 删除
+        %td= c.created_at

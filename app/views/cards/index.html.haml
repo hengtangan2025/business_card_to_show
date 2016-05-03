@@ -1,0 +1,48 @@
+%h2 卡片列表
+- if user_signed_in?
+  .desc.current-user
+    %span 当前用户：
+    %strong= current_user.name
+- else
+  .desc
+    %span 当前无登录用户
+%a.create{href: '/cards/new'}
+  %h4 创建名片
+
+-if @cards.count == 0
+  %p 没有名片
+-else
+  %table.table.table-bordered.table-striped
+    %thead
+      %tr
+        %th 昵称
+        %th qq号码
+        %th 微信号码
+        %th 个人介绍
+        %th 电话号码
+        %th 邮箱
+        %th 单位
+        %th 头像
+        %th 微信二维码
+        %th 操作
+    %tbody
+    -@cards.each do |c|
+      %tr
+        %td= c.name
+        %td= c.qq_code
+        %td= c.we_chat_code
+        %td= c.introduction
+        %td= c.phone_num
+        %td= c.mail
+        %td= c.company
+        %td= image_tag("/#{ c.head_url}",size: "160x90")
+        %td= image_tag("/#{ c.qr_img_url}",size: "160x90")
+        %td 
+          %a.remove{href: 'javascript:;'}
+            %h4 删除
+          %a.remove{href: 'javascript:;'}
+            %h4 修改
+          %a.remove{href: 'javascript:;'}
+            %h4 高级编辑
+
+     
