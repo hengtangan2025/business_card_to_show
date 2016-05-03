@@ -4,8 +4,11 @@
     %span 当前用户：
     %strong= current_user.name
   %hr
-  %a.create{href: '/cards/new'}
-    %h4 创建名片
+
+  - if current_user.card.nil?
+    %a.create{href: '/cards/new'}
+      %h4 创建名片
+
   .card-area.row
     -if current_user.card.present?
       .div.col-md-2
@@ -29,9 +32,9 @@
           .glyphicon.glyphicon-cog 高级编辑
         %a{:class=>'btn btn-default',href: "/cards/#{current_user.card.id}"}
           .glyphicon.glyphicon-search 查看名片
-        %a{:class=>'btn btn-default'}
+        %a{:class=>'btn btn-default',href: "/cards/#{current_user.card.id}", data: {method: :delete, confirm: '你确定？'}}
           .glyphicon.glyphicon-remove 删除名片
-        %a{:class=>'btn btn-default'}
+        %a{:class=>'btn btn-default',href: "/cards/#{current_user.card.id}/edit"}
           .glyphicon.glyphicon-pencil 修改名片
 
 

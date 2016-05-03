@@ -2,6 +2,11 @@ Rails.application.routes.draw do
 
   resources :cards
   resources :users
+  resources :messages do
+    collection do
+      get :user_msgs
+    end
+  end
 
   get    '/login'   => 'sessions#new', as: :login
   post   '/login'   => 'sessions#create'
