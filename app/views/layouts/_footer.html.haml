@@ -2,12 +2,14 @@
   %hr
   -if current_user.present?
     %ul{:class=>"nav nav-pills row"}
-      %li{:role=>"presentation",:class=>"col-md-3"}
+      %li{:role=>"presentation",:class=>"col-md-2"}
         %a{:href=>"/users/#{current_user.id}"} 我的主页
-      %li{:role=>"presentation",:class=>"col-md-3"}
+      %li{:role=>"presentation",:class=>"col-md-2"}
         %a{:href=>"/messages/user_msgs"} 查看留言
-      %li{:role=>"presentation",:class=>"col-md-3"}
+      %li{:role=>"presentation",:class=>"col-md-2"}
         %a{:href=>"/logout", :data => {:method => :delete}} 登出/注销
+      %li{:role=>"presentation",:class=>"col-md-2"}
+        %a{:href=>"/articles"} 查看文章
 
 
 
