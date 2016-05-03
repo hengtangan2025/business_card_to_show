@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 source 'https://ruby.taobao.org'
+=======
+source 'https://ruby.taobao.org/'
+>>>>>>> 6c2b087e1eb9414e662f1b970f4eca009610425d
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -24,7 +28,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -44,6 +48,12 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
+gem 'mongoid', '~> 5.1.0'
+gem 'simple_form'
+gem 'haml'
+gem 'bootstrap-sass', '~> 3.3.5'
+
+
 
 gem 'haml'
 

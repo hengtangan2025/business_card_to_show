@@ -1,0 +1,8 @@
+%h2 登录
+= form_for :session, url: login_path do |f|
+  .field
+    = f.text_field :phone_num, placeholder: '手机号'
+  .field
+    = f.password_field :password, class: 'password', placeholder: '密码'
+  %button{:type=>"submit"} 登录 
+%a{:href=>"/users/new"} 没有账号，开始注册

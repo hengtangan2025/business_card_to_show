@@ -15,3 +15,4 @@
 //= require turbolinks
 //= business_card_to_show
 //= require_tree .
+//= require bootstrap-sprockets
