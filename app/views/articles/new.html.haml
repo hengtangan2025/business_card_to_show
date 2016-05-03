@@ -1,0 +1,31 @@
+.article
+  .menu-top
+    %ul.nav.nav-pills
+      %li.active{role: "presentation",}
+        %a{href: "/articles/new"}
+          %span
+            添加文章
+      %li{role: "presentation",}
+        %a{href: "/articles"}
+          %span
+            文章
+.form-simple-article
+  .article-page-title
+    %h4
+      添加文章
+  = simple_form_for @article do |a|
+    .form-group
+      = a.label "标题"
+      = a.input :title, :label=>false, input_html:{class: "form-control", placeholder:  "标题"} 
+    .form-group    
+      = a.label "正文"
+      = a.input :text_body, as: :text, :label=>false, input_html:{class: "form-control", placeholder:  "正文", rows: "8"} 
+    .file-picture-article
+      .upload-preview
+        = a.label "图片"
+        = a.file_field :picture 
+        #target
+        %p.help-block
+          请您上传图片
+    .form-group
+      = a.button :submit, "提交"

@@ -1,0 +1,22 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.form-simple-article{
+  margin-top: 15px;
+  .article-page-title{
+    h4{
+      text-align: center;
+    }
+  }
+}
+
+.article-details{
+  line-height: 1.428;
+  .article-text-body{
+    p{
+      text-indent: 2em;
+      font-size: 14px;
+      margin: 10px;
+    }
+  }
+}
