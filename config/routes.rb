@@ -7,7 +7,8 @@ Rails.application.routes.draw do
       get :user_msgs
     end
   end
-
+  
+  root 'sessions#new'
   get    '/login'   => 'sessions#new', as: :login
   post   '/login'   => 'sessions#create'
   delete '/logout'  => 'sessions#destroy', as: :logout

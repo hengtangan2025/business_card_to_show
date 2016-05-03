@@ -9,8 +9,7 @@
       = @article.title
     .sign-article
       = @article.created_at.strftime("%B #{@article.created_at.day.ordinalize}, %Y")  
-      %a
-        Alan Shan
+      %a{:href => "/cards/#{current_user.card.id}"}= current_user.name
   .article-picture
     %img{src: "/#{@article.picture}",width:'100%',height:300}
   .article-text-body
