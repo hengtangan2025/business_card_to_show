@@ -1,32 +1,31 @@
+%meta{:name=>"viewport", :content=>"width=device-width"}
 .article
   .menu-top
     %ul.nav.nav-pills
-      %li{role: "presentation",}
-        %a{href: "/articles/new"}
-          %span
-            添加文章
       %li.active{role: "presentation",}
         %a{href: "/articles"}
           %span
             文章
+      %li{role: "presentation",}
+        %a{href: "/articles/new"}
+          %span
+            添加文章
 .article
-  %table.table.table-hover.table-condensed
+  %table.table-hover.table-condensed.index-article-table
     - @articles.each do |a|
       %tr
         %td
           %a{ href: "/articles/#{a.id}"}
-            = image_tag("/#{a.picture}", height: '90', width: '200') 
+            %img{:src => "/#{a.picture}"}
         %td
           .title-article
             %a{ href: "/articles/#{a.id}"}
               = a.title
           .body-text
-            = truncate(a.text_body, length: 160)
+            = truncate(a.text_body, length: 60)
           .date-article.help-block
             = a.created_at.strftime("%B #{a.created_at.day.ordinalize}, %Y")
             %a.btn.btn-default{ href: "/articles/#{a.id}/edit" }
               %i.glyphicon.glyphicon-edit
-                %span 修改
             %a.btn.btn-default{ href: "/articles/#{a.id}", data: {confirm: "你确定要删除吗？", method: :delete} }
               %i.glyphicon.glyphicon-trash 
-                %span 删除

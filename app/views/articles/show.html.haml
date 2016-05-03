@@ -1,3 +1,4 @@
+%meta{:name=>"viewport", :content=>"width=device-width"}
 .article-details
   %ul.nav.nav-pills
     %li
@@ -12,7 +13,7 @@
       %a
         Alan Shan
   .article-picture
-    %img{src: "/#{@article.picture}",width:'100%',height:300}
+    %img{src: "/#{@article.picture}",height:200}
   .article-text-body
     %p
       = @article.text_body

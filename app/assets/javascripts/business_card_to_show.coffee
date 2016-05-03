@@ -4,7 +4,7 @@ class FormArticle
 
   bind_events: ->
     # photo preview
-    @$elm.on 'click', '.file-picture-article', =>
+    @$elm.on 'click', '.simple-form-article .file-picture-article', =>
       jQuery(".upload-preview").on('change', (event) ->
         files = event.target.files
         image = files[0]
@@ -14,6 +14,10 @@ class FormArticle
           img.src = file.target.result
           jQuery("#target").html(img)
         reader.readAsDataURL(image)
+      )
+      jQuery(".file-picture-article").blur( ->
+        name = jQuery("input[name='article[picture]']")
+        console.log (name)
       )
 
 class Article
