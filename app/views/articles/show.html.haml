@@ -13,7 +13,10 @@
       %a
         Alan Shan
   .article-picture
-    %img{src: "/#{@article.picture}",height:200}
+    - if !@article.picture.blank?
+      %img{src: "/#{@article.picture}",height:200}
+    - if @article.picture.blank?
+      %img{src: "http://7xsd7r.com1.z0.glb.clouddn.com/pretty-girl.jpg",height:200}
   .article-text-body
     %p
       = @article.text_body

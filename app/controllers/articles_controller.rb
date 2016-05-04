@@ -46,14 +46,22 @@ class ArticlesController < ApplicationController
     text_body = params[:article][:text_body]
     picture = params[:article][:picture]
 
-    picture_file = File.join("public", picture.original_filename)
-    FileUtils.cp picture.path, picture_file
-
-    if @article.update_attributes(:title => title, :text_body => text_body, :picture => picture.original_filename)
-      redirect_to "/articles"
+     if !picture.blank?
+      picture_file = File.join("public", picture.original_filename)
+      FileUtils.cp picture.path, picture_file
+      if @article.update_attributes(:title => title, :text_body => text_body, :picture => picture.original_filename)
+        redirect_to "/articles"
+      else
+        render "/articles/#{params[:id]}"
+      end
     else
-      render "/articles/#{params[:id]}"
+      if @article.update_attributes(:title => title, :text_body => text_body, :picture => @article.picture)
+        redirect_to "/articles"
+      else
+        render "/articles/#{params[:id]}"
+      end
     end
+
   end
 
   def destroy

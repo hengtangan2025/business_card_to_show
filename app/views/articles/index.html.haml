@@ -16,7 +16,10 @@
       %tr
         %td
           %a{ href: "/articles/#{a.id}"}
-            %img{:src => "/#{a.picture}"}
+            - if a.picture.blank?
+              %img{:src => "http://7xsd7r.com1.z0.glb.clouddn.com/pretty-girl.jpg"}            
+            - if !a.picture.blank?
+              %img{:src => "/#{a.picture}"}
         %td
           .title-article
             %a{ href: "/articles/#{a.id}"}
