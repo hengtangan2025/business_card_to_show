@@ -11,6 +11,10 @@
 /db/*.sqlite3
 /db/*.sqlite3-journal
 
+*.jpg
+*.JPG
+*.gif
+
 # Ignore all logfiles and tempfiles.
 /log/*
 !/log/.keep

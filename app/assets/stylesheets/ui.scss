@@ -8,15 +8,36 @@
       text-align: center;
     }
   }
+  .file-picture-article{
+    .upload-preview{
+      #target{
+        img { max-width:300px; myimg:expression(onload=function(){ this.style.width=(this.offsetWidth > 300)?"300px":"auto"}); }
+      }
+    }
+  }
 }
 
 .article-details{
   line-height: 1.428;
   .article-text-body{
+    text-align: center;
     p{
       text-indent: 2em;
       font-size: 14px;
       margin: 10px;
+    }
+  }
+
+  .article-picture{
+    text-align:center;
+    img { max-width:600px; myimg:expression(onload=function(){ this.style.width=(this.offsetWidth > 600)?"600px":"auto"}); }
+  }
+}
+
+.article{
+  .index-article-table{
+    a{
+      img { max-width:100px; myimg:expression(onload=function(){ this.style.width=(this.offsetWidth > 100)?"100px":"auto"}); }
     }
   }
 }

@@ -15,15 +15,20 @@ class ArticlesController < ApplicationController
     text_body = params[:article][:text_body]
     picture = params[:article][:picture]
 
-    picture_file = File.join("public", picture.original_filename)
-    FileUtils.cp picture.path, picture_file
+    if !picture.blank?
+      picture_file = File.join("public", picture.original_filename)
+      FileUtils.cp picture.path, picture_file
+      @article = Article.create(:title => title, :text_body => text_body, :picture => picture.original_filename)
+    else
+      @article = Article.create(:title => title, :text_body => text_body, :picture => picture)
+    end
 
-    @article = Article.create(:title => title, :text_body => text_body, :picture => picture.original_filename)
     if @article.save
       redirect_to "/articles"
     else
       redirect_to "/articles/new"
     end  
+
   end
 
   def show

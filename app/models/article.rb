@@ -10,6 +10,8 @@ class Article
   field :picture, type: String
   # 作者
   # belongs_to :user
+
+  validates :title, :text_body, presence: true
   
   # 排序
   scope :reversed, -> {order 'created_at DESC'}
