@@ -13,7 +13,10 @@
       %a{:href => "/cards/#{current_user.card.id}"}= current_user.name
       <--点击蓝字关注
   .article-picture
-    %img{src: "/#{@article.picture}",height:200}
+    - if !@article.picture.blank?
+      %img{src: "/#{@article.picture}",height:200}
+    - if @article.picture.blank?
+      %img{src: "http://7xsd7r.com1.z0.glb.clouddn.com/pretty-girl.jpg",height:200}
   .article-text-body
     %p
       = @article.text_body
